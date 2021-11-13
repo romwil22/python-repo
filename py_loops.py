@@ -27,3 +27,23 @@ for v in nameGrade.values():
 # iterate keys in dictionary
 for k in nameGrade.keys():
     print(k)
+    
+# while lopp with user input
+userInput = ""
+
+while userInput != "python":
+    userInput = input("guess the word: ")
+    if userInput == "python":
+        print("correct!")
+    else:
+        print("guess again")
+        
+# break & continue
+while True:
+    username = input("enter your name: ")
+    if username == "rom":
+        print("welcome {}".format(username))
+        break
+    else:
+        print("try again")
+        continue
