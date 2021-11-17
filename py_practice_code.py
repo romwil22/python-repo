@@ -1,6 +1,6 @@
-x = -10
+def upperStr(*args):
+    upperArgs = [u.upper() for u in args]
+    upperArgs.sort()
+    return upperArgs
 
-if (x * 2) > x:
-    print("Greater")
-else:
-    print("Less or Equal")
+print(upperStr("snow", "glacier", "iceberg"))
