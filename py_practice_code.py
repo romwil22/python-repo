@@ -1,2 +1,1 @@
-mylist = [John, Jack, Jim]
-print(mylist)
+import cv2
