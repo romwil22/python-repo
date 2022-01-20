@@ -1,0 +1,3 @@
+user: postgres
+password: DBadmin1122
+port: 5432
