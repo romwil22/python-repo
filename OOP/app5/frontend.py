@@ -29,41 +29,41 @@ class Window(object):
         titleLabel = Label(window, text="Title:")
         titleLabel.grid(row=0,column=0)
 
-        titleEntry = StringVar()
-        tEntry = Entry(window,textvariable=titleEntry)
-        tEntry.grid(row=0,column=1)
+        self.titleEntry = StringVar()
+        self.tEntry = Entry(window,textvariable=self.titleEntry)
+        self.tEntry.grid(row=0,column=1)
 
         authorLabel = Label(window, text="Author:")
         authorLabel.grid(row=0,column=2)
 
-        authorEntry = StringVar()
-        aEntry = Entry(window,textvariable=authorEntry)
-        aEntry.grid(row=0,column=3)
+        self.authorEntry = StringVar()
+        self.aEntry = Entry(window,textvariable=self.authorEntry)
+        self.aEntry.grid(row=0,column=3)
 
         yearLabel = Label(window, text="Year:")
         yearLabel.grid(row=1,column=0)
 
-        yearEntry = StringVar()
-        yEntry = Entry(window,textvariable=yearEntry)
-        yEntry.grid(row=1,column=1)
+        self.yearEntry = StringVar()
+        self.yEntry = Entry(window,textvariable=self.yearEntry)
+        self.yEntry.grid(row=1,column=1)
 
         isbnLabel = Label(window, text="ISBN:")
         isbnLabel.grid(row=1,column=2)
 
-        isbnEntry = StringVar()
-        iEntry = Entry(window,textvariable=isbnEntry)
-        iEntry.grid(row=1,column=3)
+        self.isbnEntry = StringVar()
+        self.iEntry = Entry(window,textvariable=self.isbnEntry)
+        self.iEntry.grid(row=1,column=3)
 
-        listEntries = Listbox(window,height=6,width=35)
-        listEntries.grid(row=2,rowspan=6, column=0,columnspan=2)
+        self.listEntries = Listbox(window,height=6,width=35)
+        self.listEntries.grid(row=2,rowspan=6, column=0,columnspan=2)
 
         listScrollBar = Scrollbar(window)
         listScrollBar.grid(row=2,rowspan=6,column=2)
 
-        listEntries.configure(yscrollcommand=listScrollBar.set)
-        listScrollBar.configure(command=listEntries.yview)
+        self.listEntries.configure(yscrollcommand=listScrollBar.set)
+        listScrollBar.configure(command=self.listEntries.yview)
 
-        listEntries.bind("<<ListboxSelect>>",self.get_selected_row)
+        self.listEntries.bind("<<ListboxSelect>>",self.get_selected_row)
 
         viewButton = Button(window,text="View books",width=12,command=self.view_command)
         viewButton.grid(row=2,column=3)
@@ -102,15 +102,15 @@ class Window(object):
         try:
             global selectedTuple
             index = self.listEntries.curselection()[0]
-            selectedTuple = self.listEntries.get(index)
+            self.selectedTuple = self.listEntries.get(index)
             self.tEntry.delete(0,END)
-            self.tEntry.insert(END,selectedTuple[1])
+            self.tEntry.insert(END,self.selectedTuple[1])
             self.aEntry.delete(0,END)
-            self.aEntry.insert(END,selectedTuple[2])
+            self.aEntry.insert(END,self.selectedTuple[2])
             self.yEntry.delete(0,END)
-            self.yEntry.insert(END,selectedTuple[3])
+            self.yEntry.insert(END,self.selectedTuple[3])
             self.iEntry.delete(0,END)
-            self.iEntry.insert(END,selectedTuple[4])
+            self.iEntry.insert(END,self.selectedTuple[4])
         except IndexError:
             pass
 
