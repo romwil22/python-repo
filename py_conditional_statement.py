@@ -1,5 +1,6 @@
-# IF STATEMENT
+# CONDITIONAL STATEMENT
 
+# using if statement
 x = [1, 3, 5, 7]
 y = {"one": 1, "two": 2, "three": 3}
 
@@ -47,3 +48,13 @@ elif num1 < num2:
     print("num1 is less")
 else:
     print("num1 and 2 are equal")
+    
+# using boolean operators "and" & "or"
+number1 = 26
+number2 = 22
+
+if number1 < 30 and number2 > 20:
+    print("Both true")
+    
+if number1 < 30 or number2 < 20:
+    print("1 is true")

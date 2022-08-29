@@ -27,6 +27,7 @@ def readCsvFile():
             data = pandas.read_csv("temps_today.csv")
             print(data)
             print(data.mean())
+            print(data.mean()["st1"]) # print st1 average
     else:
         print("file not found")
 

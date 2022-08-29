@@ -2,5 +2,3 @@ Tomato
 Cucumber
 Onion
 Garlic
-potato
-Carrot

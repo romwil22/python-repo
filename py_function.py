@@ -1,42 +1,63 @@
 # CREATING USER FUNCTION
 
-# calculating average in the list function
+# mean function using list
+numberList = [1, 2, 3, 4, 5]
 
-# returning value
-def aveFunc(lstnumbers):
-    average = sum(lstnumbers) / len(lstnumbers)
-    return average
-
-# void return none value
-def aveFuncV(lstnumbers):
-    average = sum(lstnumbers) / len(lstnumbers)
-    print("average:", average)
+def mean(lstItem):
+    meanOfList = sum(lstItem) / len(lstItem)
     
-# multiple argument
-def voltage(i, r):
-    return i * r
+    return meanOfList
 
-# Default and Non-default Parameters and Keyword and Non-keyword Arguments
-def current(v = 0, r=1):
-    return v / r
+# returning with return value
+print(mean(numberList)) # with variable
+print(mean([1, 2, 3, 4, 5])) # manual
 
-# *args parameter
-def mean(*args): # tuple datatype
-    return sum(args) / len(args)
+# curreny USD to PHP function
+php = 51.36
+usd = 1
 
-# kwargs parameter
-def dctStorage(**kwargs):
-    return kwargs
+def currencyConverter(peso, dollar):
+    phpValue = dollar * peso
+    
+    print("amount in php: ", phpValue)
+    return phpValue
 
-lstnum = [2, 5, 8, 15, 23]
+valueInPhp = currencyConverter(php, usd) # return value place in variable
 
-aveFuncV(lstnum)
-ave = aveFunc(lstnum)
-print("average:", ave)
-print("voltage:", voltage(2, 10))
-print("current:", current())
-print("current", current(r= 20, v= 12))
-print("current:", current(220, 1000))
-print("mean:", mean(2, 5, 10, 15, 21))
-print("dictonary:", dctStorage(x = 2, y = 6, z = 4))
+# return converted money
+print(valueInPhp) # different approach
+print(currencyConverter(php, usd)) # but same 
+print(currencyConverter(51.36, 100))# return value
+print(currencyConverter(51.36, 100)+20)
 
+# void function return none
+def converterVoid(ph,us):
+    valuePh = us * ph
+    print(valuePh)
+
+phP = 51.36
+usD = 1
+
+# none return function
+print(converterVoid(phP,usD))
+converterVoid(phP,usD)
+converterVoid(phP,usD)
+
+# function using conditional statement
+arrayList = [1, 2, 3 , 4 ,5]
+arrayDict = {"one": 1, "two": 2, "three": 3}
+
+def meanWithCondition(dataType):
+    if isinstance(dataType, dict): # 
+        print(type(dataType), dataType)
+        phpValue = sum(dataType.values()) / len(dataType)
+    else:
+        print(type(dataType), dataType)
+        phpValue = sum(dataType) / len(dataType)
+    
+    return phpValue
+
+meanValue = meanWithCondition(arrayList)
+print(meanValue)
+meanValue = meanWithCondition(arrayDict)
+print(meanValue)
